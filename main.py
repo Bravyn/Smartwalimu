@@ -4,8 +4,12 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"messaget": "Hello World"}
+    return { "message": "hello world" }
 
-@app.get("/sentiment")
-async def sentiment():
-    pass
+@app.get("/sentiment/{text}")
+async def sentiment(text):
+
+    return {"sentiment": analyze_sentiment(text) }
+
+def analyze_sentiment(text):
+    return 1
